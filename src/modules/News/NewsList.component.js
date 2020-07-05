@@ -8,12 +8,15 @@ import NewsCard from "./NewsCard.component";
 const NewsList = () => {
   const news = useSelector((state)=> state.app.news) || {};
   const dispatch = useDispatch();
-  useEffect(async ()=> {
+  useEffect(()=> {
     if (!news || !news.hits) {
-      let storiesRes = await fetchStories({query: ''});
-      dispatch({type: 'SET_NEWS', payload: storiesRes});
+      fetchStory();
     }
   }, [])
+  async function fetchStory(commentId) {
+    let storiesRes = await fetchStories({query: ''});
+    dispatch({type: 'SET_NEWS', payload: storiesRes});
+  }
   return <div>
     {news && news.hits && news.hits.map((n, i)=> (
       <NewsCard {...n} i={i}/>
