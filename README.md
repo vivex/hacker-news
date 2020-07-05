@@ -1,4 +1,8 @@
+# Demo
+https://techient.herokuapp.com/
+
 #About
+
 A CRA App with SSR functionality. Following technologies are used:
  - create-react-app
  - express
@@ -18,8 +22,6 @@ Demo.serverFetch = async (dispatch, route) => {
   // dispatch action
 }
 ```
-## Demo
-https://techient.herokuapp.com/
 
 ## To Run
 ```$xslt
