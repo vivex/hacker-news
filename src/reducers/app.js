@@ -1,20 +1,17 @@
-const app = (state = [], action) => {
+const app = (state = {
+  news: {}
+}, action) => {
+  //console.log('action', action);
   switch (action.type) {
-    case 'ADD_TODO':
-      const nextTaskId = state ? state.length : 0;
-
-      return [
+    case 'SET_NEWS':
+      return {
         ...state,
-        {
-          id: nextTaskId,
-          text: action.text,
-          completed: false
-        }
-      ];
-    case 'TOGGLE_TODO':
-      return state.map(todo =>
-        todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
-      );
+        news: action.payload
+      };
+    case 'ADD_NEWS':
+      return {
+        ...state,
+      }
     default:
       return state;
   }

@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 
-const PORT = 3000;
+const PORT = 3001;
 
 const reactRenderer = require('./react-renderer');
 const routes = ['/', '/page'];
@@ -10,11 +10,24 @@ const routes = ['/', '/page'];
  * initialize the application and create the routes
  */
 const app = express();
-
+const proxy = require('http-proxy-middleware');
 /**
  * "/path-in-out-routes-arr" should always serve our server rendered page;
  * otherwise, continue with next handlers
  */
+
+
+app.use(['/api'], function (req, res, next) {
+  let options = {
+    target:   'https://hn.algolia.com',
+    method: req.method || 'GET',
+    changeOrigin: true,
+    logLevel: 'debug'
+  };
+  res.set('Access-Control-Allow-Origin', '*');
+  proxy(options)(req, res, next);
+});
+
 app.get('/*', reactRenderer.render(routes));
 
 /**
@@ -22,6 +35,8 @@ app.get('/*', reactRenderer.render(routes));
  */
 app.use(express.static(path.resolve(__dirname, '../build')))
 app.use(express.static(path.resolve(__dirname, '../public')))
+
+
 
 /**
  * Since this is the last non-error-handling

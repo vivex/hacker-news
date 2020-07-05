@@ -1,4 +1,5 @@
 require('ignore-styles');
+const regeneratorRuntime = require("regenerator-runtime");
 
 require('@babel/register')({
   "presets": [

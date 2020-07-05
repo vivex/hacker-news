@@ -1,0 +1,32 @@
+.u{
+  &-pad {
+    &__2x {
+      padding: 8px;
+    }
+  }
+}
+.c-header {
+  background-color: #09a98c;
+  line-height: 30px;
+  &__logo {
+    display: inline-block;
+    color: #525252;
+    font-weight: 300;
+    font-size: 1.3em;
+    span {
+      color: #000;
+    }
+  }
+  &__links {
+    display: inline-block;
+    margin-left: 20px;
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+  }
+}
+
+
+
+
