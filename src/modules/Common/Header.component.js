@@ -7,7 +7,7 @@ const Header  = () => {
       <span>T</span>ech<span>N</span>ews
     </div>
     <div className="c-header__links">
-      <a href="#">news</a> | <a href="#">about</a> | <a href="#">jobs</a>
+      <a href="https://github.com/vivex/hacker-news">news</a> | <a href="https://github.com/vivex/hacker-news">about</a> | <a href="https://github.com/vivex/hacker-news">jobs</a>
     </div>
   </header>
 };

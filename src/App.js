@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 
 import Layout from './modules/Common/Layout';
 import NewsList from "./modules/News/NewsList.component";
-import { StaticRouter } from 'react-router';
 
 import './App.css';
 

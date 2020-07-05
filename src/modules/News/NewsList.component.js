@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import queryString from 'query-string';
 
 import {useSelector, useDispatch} from 'react-redux';
@@ -8,15 +8,21 @@ import NewsCard from "./NewsCard.component";
 const NewsList = () => {
   const news = useSelector((state)=> state.app.news) || {};
   const dispatch = useDispatch();
+
+  async function fetchStory() {
+    let storiesRes = await fetchStories({query: ''});
+    dispatch({type: 'SET_NEWS', payload: storiesRes});
+  }
+
   useEffect(()=> {
     if (!news || !news.hits) {
       fetchStory();
     }
-  }, [])
-  async function fetchStory(commentId) {
-    let storiesRes = await fetchStories({query: ''});
-    dispatch({type: 'SET_NEWS', payload: storiesRes});
-  }
+    // eslint-disable-next-line
+  }, []);
+
+
+
   return <div>
     {news && news.hits && news.hits.map((n, i)=> (
       <NewsCard {...n} i={i}/>
