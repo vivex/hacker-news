@@ -22,8 +22,8 @@ const VotesGraph = ({news}) => {
   }
   console.log('data', data);
   return (
-    <div>
-      <div className="App">
+    <div className="c-votes-graph">
+      <div>
         <LineChart
           xLabel="Id"
           yLabel="Votes"

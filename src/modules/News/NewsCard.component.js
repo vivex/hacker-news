@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import moment from 'moment';
-import './styles/news.scss';
 const NewsCard = ({title, points, author, created_at, num_comments}) => {
   const [isUpVoted, setUpVoted] = useState(false);
 

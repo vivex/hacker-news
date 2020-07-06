@@ -6,7 +6,7 @@ import NewsList from "./modules/News/NewsList.component";
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import { StaticRouter } from 'react-router';
 
-import './App.css';
+import './main.scss';
 
 function App(props) {
   const routes = (

@@ -1,6 +1,4 @@
 import React from 'react';
-import './styles/common.scss';
-import './styles/grid.scss';
 const Header  = () => {
   return <header className="c-header u-pad__2x">
     <div className="c-header__logo">
