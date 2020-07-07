@@ -30,7 +30,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start": "npm run build && NODE_ENV=production node server/bootstrap.js"
+    "start": "yarn run build && NODE_ENV=production node server/bootstrap.js"
   },
   "eslintConfig": {
     "extends": "react-app"
