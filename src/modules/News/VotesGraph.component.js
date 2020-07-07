@@ -17,17 +17,21 @@ const VotesGraph = ({news}) => {
   console.log('news', news);
   if (news && news.hits) {
     news.hits.forEach((n)=> {
-      data[0].points.push({x: n.objectID*1, y: n.points});
+      data[0].points.push({y: n.objectID*1, x: n.points});
     });
   }
-  console.log('data', data);
+  let windowWidth = typeof window!== 'undefined' ?  window.innerWidth : null;
+  if (windowWidth && windowWidth > 1200)
+    windowWidth = 1200
+
   return (
     <div className="c-votes-graph">
       <div>
         <LineChart
-          xLabel="Id"
-          yLabel="Votes"
+          xLabel="Votes"
+          yLabel="Id"
           height={400}
+          width={windowWidth}
           data={data}
         />
       </div>
